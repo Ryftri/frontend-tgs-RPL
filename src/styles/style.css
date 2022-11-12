@@ -1,0 +1,238 @@
+body {
+  font-size: 0.875rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+   * Sidebar
+   */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+    right: 0;
+    */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 7rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #727272;
+}
+
+.sidebar .nav-link.active {
+  color: #727272;
+}
+
+.sidebar .nav-link:hover {
+  color: #2470dc;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+/*
+   * Navbar
+   */
+
+.navbar-brand {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
+}
+
+.navbar .navbar-toggler {
+  top: 0.25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: 0.75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.nav-link i {
+  margin-right: 10px;
+}
+
+.btn-danger i {
+  margin-right: 10px;
+}
+
+ul p {
+  width: 75%;
+  margin-left: 5px;
+}
+
+.flex-column p {
+  width: 75%;
+  margin-left: 5px;
+}
+
+/* Login */
+
+.form-signin {
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin input[type="number"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.form-dashboard {
+  max-height: 55vh;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.button-save {
+  margin-top: 20px;
+}
+
+
+tbody {
+  display: block;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+th,td {
+  border-left: 1px solid #72727250;
+  border-right: 1px solid #72727250;
+}
+
+.actions {
+  border-left: none;
+  border-right: none;
+}
+
+.button-td{
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+thead, tbody tr {
+  display: table;
+  width: 90%;
+  table-layout: fixed;/* even columns width , fix width of table too*/
+}
+thead {
+  width: calc( 90% - 1.1em )/* scrollbar is average 1em/16px width, remove it from thead width */
+}
+table {
+  width: 400px;
+}
+
+.label__kusus {
+  display: flex;
+}
+
+.pesan {
+  margin: auto;
+}
