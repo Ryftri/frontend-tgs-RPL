@@ -30,7 +30,7 @@ const IncomingGoodsList = () => {
   const deleteIncoming = async (productId) => {
     try {
       await axios.delete(`http://localhost:5000/incomings/${productId}`);
-      getIncomingGoods(); 
+      getIncomingGoods();
     } catch (error) {
       setMsg(error.response.data.msg)
     }
@@ -40,25 +40,44 @@ const IncomingGoodsList = () => {
     <div>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 className="h2">Barang Masuk</h3>
-        <div className="option label__kusus">
-          <label>Pilih Tipe Produk</label>
-            <select value={clickTypeProduct} onChange={renderFunction} className="option2 form-select" aria-label="Pilih Tipe">
-              <option value="">Semua Barang Masuk</option>
-              <option value="pod">POD</option>
-              <option value="mod">MOD</option>
-              <option value="coil">Coil</option>
-              <option value="liquid">liquid</option>
-              <option value="rda">RDA</option>
-              <option value="kapas">Kapas</option>
-              <option value="lain-lain">lain-lain</option>
-            </select>
-        </div>
+
         <div className="btn-toolbar mb-2 mb-md-0">
           <div className="btn-group me-2">
           <Link to={"/barang-masuk/add"} className="btn btn-outline-success">Tambah Produk</Link>
           </div>
         </div>
       </div>
+
+      <div className="option label__kusus justify-content-between">
+        <div>
+          <label>Pilih Tipe Produk</label>
+          <select value={clickTypeProduct} onChange={renderFunction} className="option2 form-select" aria-label="Pilih Tipe">
+            <option value="">Semua Barang Masuk</option>
+            <option value="pod">POD</option>
+            <option value="mod">MOD</option>
+            <option value="coil">Coil</option>
+            <option value="liquid">liquid</option>
+            <option value="rda">RDA</option>
+            <option value="kapas">Kapas</option>
+            <option value="lain-lain">lain-lain</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Pilih Tipe Produk</label>
+          <select value={clickTypeProduct} onChange={renderFunction} className="option2 form-select" aria-label="Pilih Tipe">
+            <option value="">Semua Barang Masuk</option>
+            <option value="pod">POD</option>
+            <option value="mod">MOD</option>
+            <option value="coil">Coil</option>
+            <option value="liquid">liquid</option>
+            <option value="rda">RDA</option>
+            <option value="kapas">Kapas</option>
+            <option value="lain-lain">lain-lain</option>
+          </select>
+        </div>
+      </div>
+
       <table className="table">
         <thead>
           <tr>
