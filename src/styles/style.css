@@ -219,14 +219,14 @@ th,td {
 
 thead, tbody tr {
   display: table;
-  width: 90%;
+  width: 100%;
   table-layout: fixed;/* even columns width , fix width of table too*/
 }
 thead {
-  width: calc( 90% - 1.1em )/* scrollbar is average 1em/16px width, remove it from thead width */
+  width: calc( 100% - 1.25em )/* scrollbar is average 1em/16px width, remove it from thead width */
 }
 table {
-  width: 400px;
+  width: 1000px;
 }
 
 .label__kusus {
@@ -235,4 +235,8 @@ table {
 
 .pesan {
   margin: auto;
+}
+
+main {
+  padding: 0 5px !important;
 }

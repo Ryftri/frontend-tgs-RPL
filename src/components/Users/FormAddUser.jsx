@@ -58,26 +58,26 @@ const FormAddUser = () => {
         <div className="form-dashboard">
           <div className="form-floating mb-3">
             <input value={name} onChange={(event) => setName(event.target.value)} type="text" className="form-control" id="floatingInput" placeholder="Paijo" />
-            <label for="floatingInput">Nama</label>
+            <label htmlFor="floatingInput">Nama</label>
           </div>
 
           <div className="form-floating mb-3">
             <input value={email} onChange={(event) => setEmail(event.target.value)} type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
-            <label for="floatingInput">Email</label>
+            <label htmlFor="floatingInput">Email</label>
           </div>
 
           <div className="form-floating mb-3">
             <input value={password} onChange={(event) => setPassword(event.target.value)} type="password" className="form-control" id="floatingPassword" placeholder="Password" />
-            <label for="floatingPassword">Password</label>
+            <label htmlFor="floatingPassword">Password</label>
           </div>
 
           <div className="form-floating mb-3">
             <input value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} type="password" className="form-control" id="floatingPassword" placeholder="Confirm Password" />
-            <label for="floatingPassword">Konfirmasi Password</label>
+            <label htmlFor="floatingPassword">Konfirmasi Password</label>
           </div>
 
           <div className="select mb-3">
-            <label for="floatingPassword">Role</label>
+            <label htmlFor="floatingPassword">Role</label>
             <select value={role} onChange={(event) => setRole(event.target.value)} className="form-select" aria-label="Pilih Role">
               <option value="admin">Admin</option>
               <option value="user">User</option>
@@ -85,7 +85,7 @@ const FormAddUser = () => {
           </div>
 
           <div className="foto mb-3">
-            <label for="floatingPassword">Masukkan Foto Anggota</label>
+            <label htmlFor="floatingPassword">Masukkan Foto Anggota</label>
             <div>
               <div>
                 <label className="d-flex flex-column">

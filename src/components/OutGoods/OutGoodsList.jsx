@@ -35,10 +35,19 @@ const IncomingGoodsList = () => {
     <div>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 className="h2">Barang Keluar</h3>
-        <div className="option label__kusus">
+        <div className="btn-toolbar mb-2 mb-md-0">
+          <div className="btn-group me-2">
+            <Link to={"/barang-keluar/add"} className="btn btn-outline-success">
+              Tambah Barang Keluar
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="option label__kusus justify-content-between">
+        <div>
           <label>Pilih Tipe Produk</label>
           <select value={clickTypeProduct} onChange={renderFunction} className="option2 form-select" aria-label="Pilih Tipe">
-            <option value="">Semua Barang Keluar</option>
+            <option value="">Semua Barang Masuk</option>
             <option value="pod">POD</option>
             <option value="mod">MOD</option>
             <option value="coil">Coil</option>
@@ -47,13 +56,6 @@ const IncomingGoodsList = () => {
             <option value="kapas">Kapas</option>
             <option value="lain-lain">lain-lain</option>
           </select>
-        </div>
-        <div className="btn-toolbar mb-2 mb-md-0">
-          <div className="btn-group me-2">
-            <Link to={"/barang-keluar/add"} className="btn btn-outline-success">
-              Tambah Barang Keluar
-            </Link>
-          </div>
         </div>
       </div>
       <table className="table">
@@ -65,7 +67,7 @@ const IncomingGoodsList = () => {
             <th scope="col">Brand</th>
             <th scope="col">Jumlah Barang</th>
             <th scope="col">Di Input Oleh</th>
-            <th scope="col">ID</th>
+            <th scope="col">Kode</th>
             {user && user.role === "admin" && (
                 <th scope="col" className="actions">Aksi</th>
             )}
@@ -82,7 +84,7 @@ const IncomingGoodsList = () => {
                   <td>{outGoods.product.brand}</td>
                   <td>{outGoods.quantity}</td>
                   <td>{outGoods.user.name}</td>
-                  <td>{outGoods.id}</td>
+                  <td>{outGoods.kode_brg_keluar}</td>
                   {user && user.role === "admin" && (
                   <td className="btn-group me-2 button-td">
                     <button className="btn btn-danger" onClick={() => deleteOutGoods(outGoods.uuid)}>
@@ -106,7 +108,7 @@ const IncomingGoodsList = () => {
                 <td>{incoming.product.brand}</td>
                 <td>{incoming.quantity}</td>
                 <td>{incoming.user.name}</td>
-                <td>{incoming.id}</td>
+                <td>{incoming.kode_brg_keluar}</td>
                 {user && user.role === "admin" && (
                   <td className="btn-group me-2 button-td">
                     <button className="btn btn-danger" onClick={() => deleteOutGoods(outGoods.uuid)}>

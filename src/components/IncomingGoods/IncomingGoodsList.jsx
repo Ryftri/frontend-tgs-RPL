@@ -62,20 +62,6 @@ const IncomingGoodsList = () => {
             <option value="lain-lain">lain-lain</option>
           </select>
         </div>
-
-        <div>
-          <label>Pilih Tipe Produk</label>
-          <select value={clickTypeProduct} onChange={renderFunction} className="option2 form-select" aria-label="Pilih Tipe">
-            <option value="">Semua Barang Masuk</option>
-            <option value="pod">POD</option>
-            <option value="mod">MOD</option>
-            <option value="coil">Coil</option>
-            <option value="liquid">liquid</option>
-            <option value="rda">RDA</option>
-            <option value="kapas">Kapas</option>
-            <option value="lain-lain">lain-lain</option>
-          </select>
-        </div>
       </div>
 
       <table className="table">
@@ -87,6 +73,7 @@ const IncomingGoodsList = () => {
             <th scope="col">Brand</th>
             <th scope="col">Jumlah Barang</th>
             <th scope="col">Di Input Oleh</th>
+            <th scope="col">Kode</th>
             {user && user.role === "admin" && (
                 <th scope="col" className="actions">Aksi</th>
             )}
@@ -102,6 +89,7 @@ const IncomingGoodsList = () => {
             <td>{incoming.product.brand}</td>
             <td>{incoming.quantity}</td>
             <td>{incoming.user.name}</td>
+            <td>{incoming.kode_brg_masuk}</td>
             {user && user.role === "admin" && (
             <td className="btn-group me-2 button-td">
               <button className="btn btn-danger" onClick={() => deleteIncoming(incoming.uuid)} >Hapus</button>
@@ -121,6 +109,7 @@ const IncomingGoodsList = () => {
               <td>{incoming.product.brand}</td>
               <td>{incoming.quantity}</td>
               <td>{incoming.user.name}</td>
+              <td>{incoming.kode_brg_masuk}</td>
               {user && user.role === "admin" && (
                 <td className="btn-group me-2 button-td">
                   <button className="btn btn-danger" onClick={() => deleteIncoming(incoming.uuid)} >Hapus</button>

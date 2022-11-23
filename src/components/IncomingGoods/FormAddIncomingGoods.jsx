@@ -30,7 +30,7 @@ const FormAddIncomingGoods = () => {
     }
     getProducts();
     filter()
-  }, [name])
+  })
 
   const getProducts = async () => {
     const response = await axios.get("http://localhost:5000/products");
@@ -96,7 +96,7 @@ const FormAddIncomingGoods = () => {
 
           <div className="form-floating mb-3">
             <input type="number" className="form-control" id="floatingInput" value={quantity} onChange={(event) => setQuantity(event.target.value)} placeholder="20000" />
-            <label >Jumlah Produk</label>
+            <label >Jumlah Barang Masuk</label>
           </div>
         </div>
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { LoginUser, reset } from "../features/authSlice";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,6 +16,23 @@ const Login = () => {
       navigate("/dashboard");
     }
     dispatch(reset());
+
+    const getMeLogin = async() => {
+      try {
+        const response = await axios.get("http://localhost:5000/me");
+        if(response.data) {
+          navigate("/dashboard");
+        }
+      } catch (error) {
+        if (error.response) {
+          const message = error.response.data.msg;
+          console.log(message);
+        }
+      }
+    }
+    setTimeout(() => {
+      getMeLogin();
+    }, 500)
   }, [user, isSuccess, dispatch, navigate]);
 
   const Auth = (event) => {
@@ -30,11 +48,11 @@ const Login = () => {
 
           <div className="form-floating">
             <input type="email" className="form-control" id="floatingInput" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="name@example.com" />
-            <label for="floatingInput">Email</label>
+            <label htmlFor="floatingInput">Email</label>
           </div>
           <div className="form-floating">
             <input type="password" className="form-control" id="floatingPassword" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password" />
-            <label for="floatingPassword">Password</label>
+            <label htmlFor="floatingPassword">Password</label>
           </div>
 
           <button className="w-100 btn btn-lg btn-primary" type="submit">

@@ -9,7 +9,7 @@ const FormAddOutGoods = () => {
   const [brand, setBrand] = useState("");
   const [quantity, setQuantity] = useState("");
   const [uuid, setUuid] = useState("");
-  const [sisaBrang, setSisaBarang] = useState("");
+  const [sisaBrang, setSisaBarang] = useState(0);
   const [msg, setMsg] = useState("");
 
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const FormAddOutGoods = () => {
         setTypeProduct("");
         setBrand("");
         setUuid("");
-        setSisaBarang("");
+        setSisaBarang(0);
       } else {
         setTypeProduct(filtering.typeProduct);
         setBrand(filtering.brand);
@@ -68,13 +68,12 @@ const FormAddOutGoods = () => {
     <div>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 className="h2">Tambah Barang Keluar</h3>
-        <h3>Sisa barang : {sisaBrang}</h3>
         <p>{msg}</p>
       </div>
       <form className="form p-4" onSubmit={saveOutGoods}>
         <div className="form-dashboard">
           <div className="select mb-3 select-name">
-            <label>Nama Produk</label>
+            <label>Pilih Produk</label>
             <select value={name} onChange={(event) => setName(event.target.value)} className="form-select" aria-label="Pilih Tipe">
               <option value=""></option>
               {products.map((product) => (
@@ -104,9 +103,11 @@ const FormAddOutGoods = () => {
 
           <div className="form-floating mb-3">
             <input type="number" className="form-control" id="floatingInput" value={quantity} onChange={(event) => setQuantity(event.target.value)} placeholder="20000" />
-            <label>Jumlah Produk</label>
+            <label>Jumlah Barang Keluar</label>
           </div>
         </div>
+
+        <h3>Sisa barang : {sisaBrang}</h3>
 
         <button className="w-10 btn btn-lg btn-primary button-save" type="submit">
           Simpan

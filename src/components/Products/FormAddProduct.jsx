@@ -57,7 +57,7 @@ const FormAddProduct = () => {
         <div className="form-dashboard">
           <div className="form-floating mb-3">
             <input value={name} onChange={(event) => setName(event.target.value)} type="text" className="form-control" id="floatingInput" placeholder="Paijo" />
-            <label for="floatingInput">Nama Produk</label>
+            <label htmlFor="floatingInput">Nama Produk</label>
           </div>
 
           <div className="select mb-3">
@@ -76,16 +76,16 @@ const FormAddProduct = () => {
 
           <div className="form-floating mb-3">
             <input type="text" className="form-control" id="floatingPassword" value={brand} onChange={(event) => setBrand(event.target.value)} placeholder="Gorilla" />
-            <label for="floatingPassword">Brand Produk</label>
+            <label htmlFor="floatingPassword">Brand Produk</label>
           </div>
 
           <div className="form-floating mb-3">
             <input type="number" className="form-control" id="floatingInput" value={quantity} onChange={(event) => setQuantity(event.target.value)} placeholder="20000" />
-            <label for="floatingInput">Jumlah Produk</label>
+            <label htmlFor="floatingInput">Jumlah Produk</label>
           </div>
 
           <div className="foto mb-3">
-            <label for="floatingPassword">Masukkan Foto Produk</label>
+            <label htmlFor="floatingPassword">Masukkan Foto Produk</label>
             <div>
               <div>
                 <label className="d-flex flex-column">
