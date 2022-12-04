@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 
 const IncomingGoodsList = () => {
   const [incomings, setIncomings] = useState([]);
-  const [result, setResult] = useState([]);
-  const [clickTypeProduct, setClickTypeProduct] = useState("");
+  const [search, setSearch] = useState("");
+  const [searchOption, setSearchOption] = useState("");
   const [msg, setMsg] = useState("")
   const { user } = useSelector((state) => state.auth)
 
@@ -14,17 +14,10 @@ const IncomingGoodsList = () => {
     getIncomingGoods();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const renderFunction = (event) => {
-    setClickTypeProduct(event.target.value)
-    setResult(incomings.filter(incoming => incoming.product.typeProduct === event.target.value))
-  }
   
   const getIncomingGoods = async () => {
-    const options = document.querySelector(".option2");
     const response = await axios.get("http://localhost:5000/incomings");
     setIncomings(response.data);
-    setResult(response.data.filter(incoming => incoming.product.typeProduct === options.value))
   };
 
   const deleteIncoming = async (productId) => {
@@ -51,7 +44,7 @@ const IncomingGoodsList = () => {
       <div className="option label__kusus justify-content-between">
         <div>
           <label>Pilih Tipe Produk</label>
-          <select value={clickTypeProduct} onChange={renderFunction} className="option2 form-select" aria-label="Pilih Tipe">
+          <select value={searchOption} onChange={event => setSearchOption(event.target.value)} className="option2 form-select" aria-label="Pilih Tipe">
             <option value="">Semua Barang Masuk</option>
             <option value="pod">POD</option>
             <option value="mod">MOD</option>
@@ -61,6 +54,11 @@ const IncomingGoodsList = () => {
             <option value="kapas">Kapas</option>
             <option value="lain-lain">lain-lain</option>
           </select>
+        </div>
+
+        <div>
+          <label>Pencarian Berdasarkan Id</label>
+          <input value={search} onChange={event => setSearch(event.target.value)} type="text" className="form-control" placeholder="Id barang masuk" aria-label="Username" aria-describedby="basic-addon1"/>
         </div>
       </div>
 
@@ -80,28 +78,9 @@ const IncomingGoodsList = () => {
           </tr>
         </thead>
         <tbody>
-        {clickTypeProduct !== "" ? 
-        result.length !== 0 ? result.map((incoming, index) => (
-          <tr key={incoming.uuid}>
-            <td className="fw-bold">{index + 1}</td>
-            <td>{incoming.product.name}</td>
-            <td>{incoming.product.typeProduct}</td>
-            <td>{incoming.product.brand}</td>
-            <td>{incoming.quantity}</td>
-            <td>{incoming.user.name}</td>
-            <td>{incoming.kode_brg_masuk}</td>
-            {user && user.role === "admin" && (
-            <td className="btn-group me-2 button-td">
-              <button className="btn btn-danger" onClick={() => deleteIncoming(incoming.uuid)} >Hapus</button>
-            </td>
-            )}
-          </tr>
-          ))
-          : 
-          <tr><td className="pesan fs-2 text-center">Maaf data barang belum ada</td></tr>
-          :
-          incomings.length !== 0 ? 
-          incomings.map((incoming, index) => (
+        {incomings.filter((filtering) => 
+        filtering.product.typeProduct.toLowerCase().includes(searchOption.toLowerCase()) && 
+        filtering.kode_brg_masuk.toLowerCase().includes(search.toLowerCase())).map((incoming, index) => (
             <tr key={incoming.uuid}>
               <td className="fw-bold">{index + 1}</td>
               <td>{incoming.product.name}</td>
@@ -117,8 +96,6 @@ const IncomingGoodsList = () => {
             )}
             </tr>
           )) 
-          :
-          <tr><td className="pesan fs-2 text-center">Maaf data barang belum ada</td></tr>
           }
         </tbody>
       </table>

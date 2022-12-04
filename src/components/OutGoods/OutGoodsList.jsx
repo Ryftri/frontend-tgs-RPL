@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 
 const IncomingGoodsList = () => {
   const [outGoods, setOutGoods] = useState([]);
-  const [result, setResult] = useState([]);
-  const [clickTypeProduct, setClickTypeProduct] = useState("");
+  const [search, setSearch] = useState("");
+  const [searchOption, setSearchOption] = useState("");
   const { user } = useSelector((state) => state.auth)
 
   useEffect(() => {
@@ -14,16 +14,9 @@ const IncomingGoodsList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const renderFunction = (event) => {
-    setClickTypeProduct(event.target.value);
-    setResult(outGoods.filter((incoming) => incoming.product.typeProduct === event.target.value));
-  };
-
   const getOutGoods = async () => {
-    const options = document.querySelector(".option2");
     const response = await axios.get("http://localhost:5000/out-goods");
     setOutGoods(response.data);
-    setResult(response.data.filter((incoming) => incoming.product.typeProduct === options.value));
   };
 
   const deleteOutGoods = async (productId) => {
@@ -44,9 +37,9 @@ const IncomingGoodsList = () => {
         </div>
       </div>
       <div className="option label__kusus justify-content-between">
-        <div>
+      <div>
           <label>Pilih Tipe Produk</label>
-          <select value={clickTypeProduct} onChange={renderFunction} className="option2 form-select" aria-label="Pilih Tipe">
+          <select value={searchOption} onChange={event => setSearchOption(event.target.value)} className="option2 form-select" aria-label="Pilih Tipe">
             <option value="">Semua Barang Masuk</option>
             <option value="pod">POD</option>
             <option value="mod">MOD</option>
@@ -56,6 +49,11 @@ const IncomingGoodsList = () => {
             <option value="kapas">Kapas</option>
             <option value="lain-lain">lain-lain</option>
           </select>
+        </div>
+
+        <div>
+          <label>Pencarian Berdasarkan Id</label>
+          <input value={search} onChange={event => setSearch(event.target.value)} type="text" className="form-control" placeholder="Id barang masuk" aria-label="Username" aria-describedby="basic-addon1"/>
         </div>
       </div>
       <table className="table">
@@ -74,33 +72,9 @@ const IncomingGoodsList = () => {
           </tr>
         </thead>
         <tbody>
-          {clickTypeProduct !== "" ? (
-            result.length !== 0 ? (
-              result.map((outGoods, index) => (
-                <tr key={outGoods.uuid}>
-                  <td className="fw-bold">{index + 1}</td>
-                  <td>{outGoods.product.name}</td>
-                  <td>{outGoods.product.typeProduct}</td>
-                  <td>{outGoods.product.brand}</td>
-                  <td>{outGoods.quantity}</td>
-                  <td>{outGoods.user.name}</td>
-                  <td>{outGoods.kode_brg_keluar}</td>
-                  {user && user.role === "admin" && (
-                  <td className="btn-group me-2 button-td">
-                    <button className="btn btn-danger" onClick={() => deleteOutGoods(outGoods.uuid)}>
-                      Hapus
-                    </button>
-                  </td>
-                  )}
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td className="pesan fs-2 text-center">Maaf data barang belum ada</td>
-              </tr>
-            )
-          ) : outGoods.length !== 0 ? (
-            outGoods.map((incoming, index) => (
+          {outGoods.filter((filtering) => 
+        filtering.product.typeProduct.toLowerCase().includes(searchOption.toLowerCase()) && 
+        filtering.kode_brg_keluar.toLowerCase().includes(search.toLowerCase())).map((incoming, index) => (
               <tr key={incoming.uuid}>
                 <td className="fw-bold">{index + 1}</td>
                 <td>{incoming.product.name}</td>
@@ -117,12 +91,7 @@ const IncomingGoodsList = () => {
                   </td>
                 )}
               </tr>
-            ))
-          ) : (
-            <tr>
-              <td className="pesan fs-2 text-center">Maaf data barang belum ada</td>
-            </tr>
-          )}
+            ))}
         </tbody>
       </table>
     </div>
