@@ -28,9 +28,12 @@ const FormAddIncomingGoods = () => {
             setUuid(filtering.uuid);
         }
     }
-    getProducts();
     filter()
-  })
+    if(products.length === 0){
+      getProducts();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [name])
 
   const getProducts = async () => {
     const response = await axios.get("http://localhost:5000/products");
@@ -85,6 +88,7 @@ const FormAddIncomingGoods = () => {
               <option value="mod">MOD</option>
               <option value="coil">Coil</option>
               <option value="liquid">liquid</option>
+              <option value="kapas">Kapas</option>
               <option value="lain-lain">lain-lain</option>
             </select>
           </div>

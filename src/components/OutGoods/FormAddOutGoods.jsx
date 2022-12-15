@@ -32,7 +32,9 @@ const FormAddOutGoods = () => {
       }
     };
     filter();
-    getProducts();
+    if(products.length === 0){
+      getProducts();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name]);
 
@@ -92,6 +94,7 @@ const FormAddOutGoods = () => {
               <option value="mod">MOD</option>
               <option value="coil">Coil</option>
               <option value="liquid">liquid</option>
+              <option value="kapas">Kapas</option>
               <option value="lain-lain">lain-lain</option>
             </select>
           </div>
