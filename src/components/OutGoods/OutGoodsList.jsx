@@ -25,7 +25,7 @@ const IncomingGoodsList = () => {
   };
 
   return (
-    <div>
+    <div className="animation">
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 className="h2">Barang Keluar</h3>
         <div className="btn-toolbar mb-2 mb-md-0">
@@ -85,7 +85,7 @@ const IncomingGoodsList = () => {
                 <td>{incoming.kode_brg_keluar}</td>
                 {user && user.role === "admin" && (
                   <td className="btn-group me-2 button-td">
-                    <button className="btn btn-danger" onClick={() => deleteOutGoods(outGoods.uuid)}>
+                    <button className="btn btn-danger" onClick={() => deleteOutGoods(incoming.uuid)}>
                       Hapus
                     </button>
                   </td>

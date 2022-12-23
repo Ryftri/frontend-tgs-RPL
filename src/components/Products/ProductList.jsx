@@ -22,7 +22,7 @@ const ProductList = () => {
   };
 
   return (
-    <div>
+    <div className="animation">
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 className="h2">Produk</h3>
         <div className="btn-toolbar mb-2 mb-md-0">

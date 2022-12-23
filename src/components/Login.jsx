@@ -41,26 +41,28 @@ const Login = () => {
   };
 
   return (
-    <div className="login-form">
-      <main className="form-signin">
-        <form onSubmit={Auth} className="form">
-          <h1 className="h3 mb-3 fw-normal">Mohon untuk login</h1>
+    <div className="gradasi">
+      <div className="login-form">
+        <main className="form-signin">
+          <form onSubmit={Auth} className="form">
+            <h1 className="h3 mb-3 fw-normal judul-login">Mohon untuk login</h1>
 
-          <div className="form-floating">
-            <input type="email" className="form-control" id="floatingInput" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="name@example.com" />
-            <label htmlFor="floatingInput">Email</label>
-          </div>
-          <div className="form-floating">
-            <input type="password" className="form-control" id="floatingPassword" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password" />
-            <label htmlFor="floatingPassword">Password</label>
-          </div>
+            <div className="form-floating">
+              <input type="email" className="form-control" id="floatingInput" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="name@example.com" />
+              <label htmlFor="floatingInput">Email</label>
+            </div>
+            <div className="form-floating">
+              <input type="password" className="form-control" id="floatingPassword" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password" />
+              <label htmlFor="floatingPassword">Password</label>
+            </div>
 
-          <button className="w-100 btn btn-lg btn-primary" type="submit">
-            {isLoading ? "Loading...." : "Masuk"}
-          </button>
-        </form>
-        {isError && <p className="text-center">{message}</p>}
-      </main>
+            <button className="w-100 btn btn-lg btn-primary login__btn" type="submit">
+              {isLoading ? "Loading...." : "Masuk"}
+            </button>
+          </form>
+          {isError && <p className="text-center fs-5 text-light message">{message}</p>}
+        </main>
+      </div>
     </div>
   );
 };
