@@ -2,6 +2,11 @@
   font-size: 18px;
 }
 
+html, body, #root, .main__conten, .container-fluid, .main__view{
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-size: 0.875rem;
 }
@@ -285,4 +290,49 @@ main {
   to{
     opacity: 1;
   }
+}
+
+
+main{
+  height: 100%;
+  width: 100%;
+}
+
+.container-fluid {
+  background-color: #171010 !important;
+  color: white !important;
+}
+
+label {
+  color: #929292;
+}
+
+#sidebarMenu{
+  background-color: #362222 !important;
+}
+
+.link__pages .nav-link{
+  color: white !important;
+  transition: .5s ease-in-out;
+}
+
+.link__pages .nav-link:hover {
+  color: rgb(194, 194, 194) !important;
+  transition: .5s ease-in-out;
+}
+
+table {
+  color: white !important;
+}
+
+header, header a, .navbar-nav{
+  background-color: #423F3E !important;
+}
+
+header {
+  background-color: #423F3E !important;
+}
+
+.login {
+  padding: 0 40em 0 40em;
 }

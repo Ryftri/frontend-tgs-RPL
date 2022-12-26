@@ -21,11 +21,8 @@ const Welcome = () => {
         label: 'Data Product',
         data: response.data.map(product => product.quantity),
         backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'rgb(55, 205, 86)',
-          'rgb(255, 05, 86)',
-          'rgb(255, 205, 100)',
+          'rgb(66, 63, 62)',
+          'rgb(43, 43, 43)',
         ]
       }]
     };
@@ -37,12 +34,13 @@ const Welcome = () => {
     })
     chart.canvas.parentNode.style.height = '500px';
     chart.canvas.parentNode.style.width = '500px';
+    Chart.defaults.color = '#FFF';
   };
 
   return (
     <div>
       <h3 className="subtitle">
-        Selamat Datang Kembali <strong className="fs-4">{user && user.name}</strong>
+        Selamat Datang Kembali <p className="fs-4 fw-bold">{user && user.name}</p>
       </h3>
 
       <canvas id="myChart"></canvas>

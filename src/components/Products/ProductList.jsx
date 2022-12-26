@@ -27,7 +27,7 @@ const ProductList = () => {
         <h3 className="h2">Produk</h3>
         <div className="btn-toolbar mb-2 mb-md-0">
           <div className="btn-group me-2">
-          <Link to={"/products/add"} className="btn btn-outline-success">Tambah Produk</Link>
+          <Link to={"/products/add"} className="btn btn-success">Tambah Produk</Link>
           </div>
         </div>
       </div>

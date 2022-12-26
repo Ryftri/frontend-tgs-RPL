@@ -25,7 +25,7 @@ const UserList = () => {
         <h3 className="h2">Anggota</h3>
         <div className="btn-toolbar mb-2 mb-md-0">
           <div className="btn-group me-2">
-          <Link to={"/users/add"} className="btn btn-outline-success">Tambah Anggota</Link>
+          <Link to={"/users/add"} className="btn btn-success">Tambah Anggota</Link>
           </div>
         </div>
       </div>

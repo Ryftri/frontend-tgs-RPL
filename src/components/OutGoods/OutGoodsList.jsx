@@ -30,7 +30,7 @@ const IncomingGoodsList = () => {
         <h3 className="h2">Barang Keluar</h3>
         <div className="btn-toolbar mb-2 mb-md-0">
           <div className="btn-group me-2">
-            <Link to={"/barang-keluar/add"} className="btn btn-outline-success">
+            <Link to={"/barang-keluar/add"} className="btn btn-success">
               Tambah Barang Keluar
             </Link>
           </div>

@@ -44,8 +44,8 @@ const Login = () => {
     <div className="gradasi">
       <div className="login-form">
         <main className="form-signin">
-          <form onSubmit={Auth} className="form">
-            <h1 className="h3 mb-3 fw-normal judul-login">Mohon untuk login</h1>
+          <form onSubmit={Auth} className="form login">
+            <h1 className="h3 mb-3 fw-normal judul-login text-center">Mohon untuk login</h1>
 
             <div className="form-floating">
               <input type="email" className="form-control" id="floatingInput" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="name@example.com" />

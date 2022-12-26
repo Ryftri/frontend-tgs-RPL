@@ -18,15 +18,15 @@ const Sidebar = () => {
     <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div className="position-sticky pt-3">
         <ul className="nav flex-column">
-          <p className="fs-5 border-bottom border-dark">General</p>
-          <li className="nav-item">
+          <p className="fs-5 border-bottom border-light">General</p>
+          <li className="nav-item link__pages">
             <NavLink to="/dashboard" className="nav-link fs-6">
               <i className="bi bi-house-door"></i>
               Dashboard
             </NavLink>
           </li>
           
-          <li className="nav-item">
+          <li className="nav-item link__pages">
             <NavLink to="/products" className="nav-link fs-6">
               <i className="bi bi-inboxes"></i>
               <span data-feather="file"></span>
@@ -34,7 +34,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item link__pages">
             <NavLink to="/barang-masuk" className="nav-link fs-6">
               <i className="bi bi-box-arrow-in-down"></i>
               <span data-feather="file"></span>
@@ -42,7 +42,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item link__pages">
             <NavLink to="/barang-keluar" className="nav-link fs-6">
               <i className="bi bi-box-arrow-up"></i>
               <span data-feather="file"></span>
@@ -53,8 +53,8 @@ const Sidebar = () => {
 
         {user && user.role === "admin" && (
           <ul className="nav flex-column">
-            <p className="fs-5 border-bottom border-dark">Administrator</p>
-            <li className="nav-item">
+            <p className="fs-5 border-bottom border-light">Administrator</p>
+            <li className="nav-item link__pages">
               <NavLink to="/users" className="nav-link fs-6">
                 <i className="bi bi-person-video2"></i>
                 Staff
@@ -64,7 +64,7 @@ const Sidebar = () => {
         )}
 
         <div className="flex-column">
-          <p className="fs-5 border-bottom border-dark">Setting</p>
+          <p className="fs-5 border-bottom border-light">Setting</p>
           <button onClick={logout} className="btn btn-danger m-2 fs-6">
             <i className="bi bi-box-arrow-left"></i>
             Sign out

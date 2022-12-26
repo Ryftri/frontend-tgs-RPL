@@ -14,7 +14,7 @@ import AddOutGoods from "./pages/OutGoods/AddOutGoods";
 
 function App() {
   return (
-    <div>
+    <div className="main__conten">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
