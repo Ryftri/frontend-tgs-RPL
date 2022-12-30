@@ -8,6 +8,7 @@ const FormAddIncomingGoods = () => {
   const [typeProduct, setTypeProduct] = useState("");
   const [brand, setBrand] = useState("");
   const [quantity, setQuantity] = useState("");
+  const [alamat, setAlamat] = useState("");
   const [uuid, setUuid] = useState("");
   const [msg, setMsg] = useState("");
 
@@ -45,6 +46,7 @@ const FormAddIncomingGoods = () => {
     const formData = new FormData();
     
     formData.append("quantites", quantity);
+    formData.append("alamat", alamat);
     formData.append("id", uuid);
 
     try {
@@ -96,6 +98,11 @@ const FormAddIncomingGoods = () => {
           <div className="form-floating mb-3">
             <input type="text" className="form-control" id="floatingPassword" value={brand} onChange={(event) => setBrand(event.target.value)} placeholder="Gorilla" disabled/>
             <label >Brand Produk</label>
+          </div>
+
+          <div className="form-floating mb-3">
+            <input type="text" className="form-control" id="floatingInput" value={alamat} onChange={(event) => setAlamat(event.target.value)} placeholder="Alamat" />
+            <label >Alamat Barang Masuk</label>
           </div>
 
           <div className="form-floating mb-3">

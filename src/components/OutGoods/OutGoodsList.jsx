@@ -63,6 +63,7 @@ const IncomingGoodsList = () => {
             <th scope="col">Nama Barang</th>
             <th scope="col">Tipe Produk</th>
             <th scope="col">Brand</th>
+            <th scope="col">Alamat</th>
             <th scope="col">Jumlah Barang</th>
             <th scope="col">Di Input Oleh</th>
             <th scope="col">Kode</th>
@@ -80,6 +81,7 @@ const IncomingGoodsList = () => {
                 <td>{incoming.product.name}</td>
                 <td>{incoming.product.typeProduct}</td>
                 <td>{incoming.product.brand}</td>
+                <td>{incoming.alamat}</td>
                 <td>{incoming.quantity}</td>
                 <td>{incoming.user.name}</td>
                 <td>{incoming.kode_brg_keluar}</td>
